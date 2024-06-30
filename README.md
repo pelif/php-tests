@@ -1,4 +1,4 @@
-# Códigos sobre testes unitários em PHP
+# Códigos sobre testes de software em PHP
 
 ## Aqui estão alguns estudos com conceito geral sobre pirâmide de testes utilizando php
 
