@@ -1,5 +1,34 @@
 version: '3'
 services:
+  web: 
+    container_name: web_tests_php
+    build: 
+      context: .
+      dockerfile: nginx.dockerfile    
+    volumes: 
+      - .:/var/www/html
+    ports: 
+      - "80:80"
+    links: 
+      - app
+    networks: 
+      dbToTests: 
+        ipv4_address: 182.20.0.3
+
+  app: 
+    container_name: app_tests_php
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /var/www/html
+    volumes: 
+      - .:/var/www/html    
+    depends_on: 
+      - db
+    networks: 
+      dbToTests: 
+        ipv4_address: 182.20.0.4
+        
   db: 
     image: mysql:5.7
     container_name: mysql_tests_php

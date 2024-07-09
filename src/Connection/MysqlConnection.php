@@ -8,7 +8,7 @@ use PDOException;
 class MysqlConnection 
 {
     private static ?PDO $conn = null; 
-
+    
     private static string $host = '182.20.0.5'; 
     private static string $database = 'testes_php'; 
     private static string $user = 'root'; 
